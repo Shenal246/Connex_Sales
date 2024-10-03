@@ -1,0 +1,1 @@
+export const apilinkmain = 'http://192.168.13.249:3001'
