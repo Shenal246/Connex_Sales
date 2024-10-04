@@ -29,16 +29,6 @@ const themeColor = {
 // Orange color for pending status
 const pendingStatusColor = '#FFB74D';
 
-
-
-
-// Sample new partner request data
-const newPartnerRequests = [
-  { id: 1, name: 'Tech Innovators', budget: 'USD 1000', status: 'Pending', date: '2023-09-21' },
-  { id: 2, name: 'Digital Solutions', budget: 'USD 2000', status: 'Pending', date: '2023-09-19' },
-  { id: 3, name: 'Alpha Networks', budget: 'USD 5000', status: 'Pending', date: '2023-09-17' },
-];
-
 // Styled Paper component
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -78,7 +68,7 @@ const DashboardPage = () => {
     datasets: [
       {
         label: 'Product Requests',
-        data: [dashboardDetails.partnerRequestStatus?.pending,dashboardDetails.partnerRequestStatus?.approved, dashboardDetails.partnerRequestStatus?.rejected, dashboardDetails.partnerRequestStatus?.reconsider], // Sample data for partner request counts
+        data: [dashboardDetails.partnerRequestStatus?.pending, dashboardDetails.partnerRequestStatus?.approved, dashboardDetails.partnerRequestStatus?.rejected, dashboardDetails.partnerRequestStatus?.reconsider], // Sample data for partner request counts
         backgroundColor: ['#FFB74D', '#4CAF50', '#F44336', 'blue'],
         hoverOffset: 4,
       },
@@ -99,11 +89,11 @@ const DashboardPage = () => {
 
 
 
-  
+
 
   useEffect(() => {
     fetchDashboradData();
-    
+
   }, []);
 
   return (
@@ -173,11 +163,11 @@ const DashboardPage = () => {
               New Deal Requests
             </Typography>
             {/* View Button next to the title */}
-            <Link to={'/vnmgt'}>
+            {/* <Link to={'/vnmgt'}>
               <Button variant="contained" color="primary" size="small">
                 View
               </Button>
-            </Link>
+            </Link> */}
           </Box>
 
           <TableContainer component={Paper} sx={{ boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)' }}>
@@ -192,26 +182,26 @@ const DashboardPage = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-  {dashboardDetails && Array.isArray(dashboardDetails.dealrequetsdata) && dashboardDetails.dealrequetsdata.length > 0 ? (
-    dashboardDetails.dealrequetsdata.map((request, index) => (
-      <TableRow key={index + 1}>
-        <TableCell>{index + 1}</TableCell>
-        <TableCell>{request.companyname}</TableCell>
-        <TableCell> {request.currency} {request.budget} </TableCell>
-        <TableCell>
-          <span style={{ color: pendingStatusColor, fontWeight: 'bold' }}>
-            {request.deal_status_name}
-          </span>
-        </TableCell>
-        <TableCell>{request.date}</TableCell>
-      </TableRow>
-    ))
-  ) : (
-    <TableRow>
-      <TableCell colSpan={5} align="center">No deal requests available</TableCell>
-    </TableRow>
-  )}
-</TableBody>
+                {dashboardDetails && Array.isArray(dashboardDetails.dealrequetsdata) && dashboardDetails.dealrequetsdata.length > 0 ? (
+                  dashboardDetails.dealrequetsdata.map((request, index) => (
+                    <TableRow key={index + 1}>
+                      <TableCell>{index + 1}</TableCell>
+                      <TableCell>{request.companyname}</TableCell>
+                      <TableCell> {request.currency} {request.budget} </TableCell>
+                      <TableCell>
+                        <span style={{ color: pendingStatusColor, fontWeight: 'bold' }}>
+                          {request.deal_status_name}
+                        </span>
+                      </TableCell>
+                      <TableCell>{request.date}</TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} align="center">No deal requests available</TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
 
             </Table>
           </TableContainer>

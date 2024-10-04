@@ -9,6 +9,7 @@ const config = {
     logoutapi: `${mainlink}/stafflogout`,
     salesDashboardapi: `${mainlink}/get-salesDashboardDetails`,
     getstaffdetailsapi: `${mainlink}/getstaffdetailsapi`,
+    getPrivileges: `${mainlink}/getStaffPrivileges`,
     // /get-salesDashboardDetails
     mainapi: `${mainlink}`,
 

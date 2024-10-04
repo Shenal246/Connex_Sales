@@ -319,7 +319,6 @@ const AppContent = () => {
           <Routes>
             <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <LoginPage />} />
             <Route path="/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
-
             <Route path="/vnmgt" element={<PrivateRoute><DealREQ /></PrivateRoute>} />
             <Route path="/promo" element={<PrivateRoute><Promotion /></PrivateRoute>} />
             <Route path="/product" element={<PrivateRoute><ProductMgt /></PrivateRoute>} />

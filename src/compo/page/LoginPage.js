@@ -8,7 +8,7 @@ import {
   Checkbox,
   InputAdornment,
   IconButton,
-  CircularProgress, 
+  CircularProgress,
   Paper,
   Grid,
 } from '@mui/material';
@@ -41,7 +41,7 @@ const themeColor = {
 
 // Background styling for the login page
 const Background = styled(Box)(({ theme }) => ({
-  
+
   background: '#ffffff',
   display: 'flex',
   justifyContent: 'center',
@@ -145,8 +145,8 @@ const LoginPage = ({ onLogin }) => {
       if (response.status === 200) {
         if (response.data.firstLogin) {
           Swal.fire('Welcome!', 'Please change your password.', 'info');
-          localStorage.setItem('token', response.data.tempToken); 
-         // Store the token
+          localStorage.setItem('token', response.data.tempToken);
+          // Store the token
           navigate('/changepassword');
         } else {
           Swal.fire('Success!', 'Logged in successfully!', 'success');
@@ -163,7 +163,7 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
- 
+
 
   return (
     <Background>
@@ -174,14 +174,14 @@ const LoginPage = ({ onLogin }) => {
             <img
               src={img}
               alt="Company Logo"
-              style={{marginTop: '50px', maxWidth: '80%' }}
+              style={{ marginTop: '50px', maxWidth: '80%' }}
             />
             <Typography variant="h4" gutterBottom>
-            Welcome to the New Sales Portal
+              Welcome to the New Sales Portal
             </Typography>
             <Typography variant="body1" color="textSecondary">
-            Our new Sales Portal is a comprehensive solution for all your sales needs. It offers a range of powerful tools and features designed to help you manage your sales activities more efficiently and effectively.
-           
+              Our new Sales Portal is a comprehensive solution for all your sales needs. It offers a range of powerful tools and features designed to help you manage your sales activities more efficiently and effectively.
+
             </Typography>
           </ContentBox>
         </Grid>
@@ -260,7 +260,7 @@ const LoginPage = ({ onLogin }) => {
             >
               {loading ? 'Logging in...' : 'Login'}
             </StyledButton>
-          
+
           </StyledPaper>
         </Grid>
       </Grid>

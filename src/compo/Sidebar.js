@@ -135,7 +135,6 @@ const Sidebar = () => {
       try {
         const response = await axios.get(getPrivilegesApi, { withCredentials: true });
         setPrivileges(response.data.Privileges);
-        console.log("Privileges:", response.data.Privileges);
       } catch (error) {
         console.error('Error fetching privileges:', error);
       }
@@ -144,7 +143,7 @@ const Sidebar = () => {
     getPrivilegesFunction();
   }, []);
 
-  const hasPrivilege = (privilege) => privileges.includes(privilege);
+const hasPrivilege = (privilege) => privileges.includes(privilege);
 
   const navItems = [
     { text: 'Home', icon: <Home />, path: '/dashboard' , privilege: 'Sales - Dashboard'},
